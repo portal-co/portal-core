@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "tools/wasm-compose-compile"
+]
+exclude = ["out"]
