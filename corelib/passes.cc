@@ -3,13 +3,22 @@
 #include "ject.wasm.h"
 #include <vector>
 using namespace wasm;
+std::string ReplaceString(std::string subject, const std::string& search,
+                          const std::string& replace) {
+    size_t pos = 0;
+    while ((pos = subject.find(search, pos)) != std::string::npos) {
+         subject.replace(pos, search.length(), replace);
+         pos += replace.length();
+    }
+    return subject;
+}
 std::vector<uint8_t> coreData(){
     return {ject, ject + sizeof(ject)};
 }
 void moveOut(wasm::Module *m) {
   std::map<Name, Name> fnames;
   for (auto &f : m->functions) {
-    fnames[f->name] = Name(std::string("mo$") + std::string(f->name.str));
+    fnames[f->name] = Name(std::string("mo$") + ReplaceString(std::string(f->name.str),".","$"));
   }
   ModuleUtils::renameFunctions(*m, fnames);
   std::vector<Expression **> loadStores;

@@ -35,3 +35,11 @@ template <typename X, typename M, typename N>
 inline void scopy(M *m, uint64_t ma, N &n, uint64_t na) {
   copy<sizeof(X)>(m, ma, n, na);
 }
+template <typename V, typename I, typename M> V &alloc(M &m, I *ip = 0) {
+  I i;
+  while (m.count(i))
+    i++;
+  if (ip)
+    *ip = i;
+  return m[i];
+}
