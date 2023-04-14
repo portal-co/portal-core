@@ -23,4 +23,10 @@ BY_CFLAGS=-I$(O)/3rdparty/binaryen/src
 
 BY_LIBS=$(O)/3rdparty-build-wasm/binaryen/lib/libbinaryen.a
 
+$(O)/tools/embedfile: $(R)/tools/embedfile.c
+	mkdir -p $(O)/tools
+	cc $(R)/tools/embedfile.c -o $(O)/tools/embedfile
+
 include $(R)/corelib/makefile.mk
+
+include $(R)/jectLib/makefile.mk
