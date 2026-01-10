@@ -1,13 +1,14 @@
 # portal-core
 
 ## Description
-Project portal-core
+Core system workspace (`portal-core`), containing WASM compilation tools (`wasm-compose-compile`).
 
 ## Goals
-- [ ] Add project goals
+- [ ] Provide core system tools
+- [ ] Manage WASM composition
 
 ## Progress
-- [ ] Initial setup
+- [ ] Workspace setup
 
 ---
 *AI assisted*
